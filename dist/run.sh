@@ -24,17 +24,17 @@ function usage_help()
 
 function runEmailService()
 {
-  nar run $DIR/netis-email-service-1.0.0.nar --args-start "--config $PWD/NetIS.Service.Email_dev.yml"
+  nar run $DIR/email-service-1.0.0.nar --args-start "--config $PWD/NetIS.Service.Email_dev.yml"
 }
 
 function runContentService()
 {
-  nar run $DIR/netis-content-service-0.1.0.nar --args-start "--config $PWD/NetIS.Service.Content_dev.yml"
+  nar run $DIR/content-service-0.1.0.nar --args-start "--config $PWD/NetIS.Service.Content_dev.yml"
 }
 
 function runSessionService()
 {
-  nar run $DIR/netis-session-service-1.0.0.nar --args-start "--config $PWD/NetIS.Service.Session_dev.yml"
+  nar run $DIR/session-service-1.0.0.nar --args-start "--config $PWD/NetIS.Service.Session_dev.yml"
 }
 
 # Usage: pack.sh <command>

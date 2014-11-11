@@ -27,9 +27,9 @@ function createAllNodePackages()
 
   echo "Creating node packages..."
 
-  nar create $SRC_DIR/NetIS.Service.Email -o $DIST_DIR
-  nar create $SRC_DIR/NetIS.Service.Content -o $DIST_DIR
-  nar create $SRC_DIR/NetIS.Service.Session -o $DIST_DIR
+  nar create $SRC_DIR/Service.Email -o $DIST_DIR
+  nar create $SRC_DIR/Service.Content -o $DIST_DIR
+  nar create $SRC_DIR/Service.Session -o $DIST_DIR
 
   copyConfigurationFiles
 
@@ -40,9 +40,9 @@ function npmInstallAll()
 {
   echo "Installing npm packages..."
 
-  pushd $SRC_DIR/NetIS.Service.Email && npm install && popd
-  pushd $SRC_DIR/NetIS.Service.Content && npm install && popd
-  pushd $SRC_DIR/NetIS.Service.Session && npm install && popd
+  pushd $SRC_DIR/Service.Email && npm install && popd
+  pushd $SRC_DIR/Service.Content && npm install && popd
+  pushd $SRC_DIR/Service.Session && npm install && popd
 
   echo "Finish to install npm packages..."
 }
@@ -51,9 +51,9 @@ function npmUpdateAll()
 {
   echo "Updating npm packages..."
 
-  pushd $SRC_DIR/NetIS.Service.Email && npm update && popd
-  pushd $SRC_DIR/NetIS.Service.Content && npm update && popd
-  pushd $SRC_DIR/NetIS.Service.Session && npm update && popd
+  pushd $SRC_DIR/Service.Email && npm update && popd
+  pushd $SRC_DIR/Service.Content && npm update && popd
+  pushd $SRC_DIR/Service.Session && npm update && popd
 
   echo "Finish to update npm packages..."
 }
@@ -75,9 +75,9 @@ function copyConfigurationFiles()
 {
   echo "Copying configuration files."
 
-  cp $SRC_DIR/NetIS.Service.Email/conf/development.yml $DIST_DIR/NetIS.Service.Email_dev.yml
-  cp $SRC_DIR/NetIS.Service.Content/conf/development.yml $DIST_DIR/NetIS.Service.Content_dev.yml
-  cp $SRC_DIR/NetIS.Service.Session/conf/development.yml $DIST_DIR/NetIS.Service.Session_dev.yml
+  cp $SRC_DIR/Service.Email/conf/development.yml $DIST_DIR/Service.Email_dev.yml
+  cp $SRC_DIR/Service.Content/conf/development.yml $DIST_DIR/Service.Content_dev.yml
+  cp $SRC_DIR/Service.Session/conf/development.yml $DIST_DIR/Service.Session_dev.yml
 }
 
 # Usage: pack.sh <command>

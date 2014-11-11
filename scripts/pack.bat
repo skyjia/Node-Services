@@ -29,14 +29,14 @@ IF "%1" == "create" (
 
 	echo Creating node packages...
 
-	nar create %SRC_DIR%\NetIS.Service.Email -o %DIST_DIR%
-	nar create %SRC_DIR%\NetIS.Service.Content -o %DIST_DIR%
-	nar create %SRC_DIR%\NetIS.Service.Session -o %DIST_DIR%
+	nar create %SRC_DIR%\Service.Email -o %DIST_DIR%
+	nar create %SRC_DIR%\Service.Content -o %DIST_DIR%
+	nar create %SRC_DIR%\Service.Session -o %DIST_DIR%
 
 	:: copy Configuration Files
-	copy %SRC_DIR%\NetIS.Service.Email\conf\development.yml %DIST_DIR%\NetIS.Service.Email_dev.yml
-	copy %SRC_DIR%\NetIS.Service.Content\conf\development.yml %DIST_DIR%\NetIS.Service.Content_dev.yml
-	copy %SRC_DIR%\NetIS.Service.Session\conf\development.yml %DIST_DIR%\NetIS.Service.Session_dev.yml
+	copy %SRC_DIR%\Service.Email\conf\development.yml %DIST_DIR%\Service.Email_dev.yml
+	copy %SRC_DIR%\Service.Content\conf\development.yml %DIST_DIR%\Service.Content_dev.yml
+	copy %SRC_DIR%\Service.Session\conf\development.yml %DIST_DIR%\Service.Session_dev.yml
 
 	echo Finish to create node packages...
 
@@ -47,9 +47,9 @@ IF "%1" == "create" (
 IF "%1" == "npm-install" (
 	echo Installing npm packages...
 
-	pushd %SRC_DIR%\NetIS.Service.Email && npm install && popd
-	pushd %SRC_DIR%\NetIS.Service.Content && npm install && popd
-	pushd %SRC_DIR%\NetIS.Service.Session && npm install && popd
+	pushd %SRC_DIR%\Service.Email && npm install && popd
+	pushd %SRC_DIR%\Service.Content && npm install && popd
+	pushd %SRC_DIR%\Service.Session && npm install && popd
 
 	echo Finish to install npm packages...
 
@@ -60,9 +60,9 @@ IF "%1" == "npm-install" (
 IF "%1" == "npm-update" (
 	echo Updating npm packages...
 
-	pushd %SRC_DIR%\NetIS.Service.Email && npm update && popd
-	pushd %SRC_DIR%\NetIS.Service.Content && npm update && popd
-	pushd %SRC_DIR%\NetIS.Service.Session && npm update && popd
+	pushd %SRC_DIR%\Service.Email && npm update && popd
+	pushd %SRC_DIR%\Service.Content && npm update && popd
+	pushd %SRC_DIR%\Service.Session && npm update && popd
 
 	echo Finish to update npm packages...
 

@@ -30,7 +30,7 @@ IF "%1" == "email-service" (
 		rmdir /S /Q %EMAIL_SERVERICE_FOLDER%
 	)
 
-	nar extract netis-email-service-1.0.0.nar -o %EMAIL_SERVERICE_FOLDER%
+	nar extract email-service-1.0.0.nar -o %EMAIL_SERVERICE_FOLDER%
 	node %EMAIL_SERVERICE_FOLDER%\www.js --config %CURRENT_DIR%\NetIS.Service.Email_dev.yml
 
 	goto end
@@ -43,7 +43,7 @@ IF "%1" == "session-service" (
 		rmdir /S /Q %SESSION_SERVICE_FOLDER%
 	)
 
-	nar extract netis-session-service-1.0.0.nar -o %SESSION_SERVICE_FOLDER%
+	nar extract session-service-1.0.0.nar -o %SESSION_SERVICE_FOLDER%
 	node %SESSION_SERVICE_FOLDER%\www.js --config %CURRENT_DIR%\NetIS.Service.Session_dev.yml
 
 	goto end
@@ -56,7 +56,7 @@ IF "%1" == "content-service" (
 		rmdir /S /Q %CONTENT_SERVICE_FOLDER%
 	)
 
-	nar extract netis-content-service-0.1.0.nar -o %CONTENT_SERVICE_FOLDER%
+	nar extract content-service-0.1.0.nar -o %CONTENT_SERVICE_FOLDER%
 	node %CONTENT_SERVICE_FOLDER%\www.js --config %CURRENT_DIR%\NetIS.Service.Content_dev.yml
 
 	goto end
