@@ -1,0 +1,19 @@
+---
+# Configurations for development environment.
+# Refer to default.yml for more information.
+
+name: "netis_content_service_1"
+
+debug_mode: true
+
+logger:
+  format: "dev"
+
+storage_path: "./storage"
+upload_path: "./uploads"
+
+buckets:
+  wxm:
+    desc: "Bucket for wxm"
+  kpzx:
+    desc: "Bucket for KPZX"

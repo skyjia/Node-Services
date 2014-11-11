@@ -1,0 +1,182 @@
+{
+	"id": "c0fbee2c-a87a-eea2-885b-2a042d894ba0",
+	"name": "Notification Servcie",
+	"description": "",
+	"order": [
+		"38d2f25e-f775-79e8-cde7-3784de6d91c7",
+		"59254603-74fe-d9c3-b881-ec9801092561",
+		"eb29b869-405a-8b85-d256-b37ca0a1b60c",
+		"a7c7d200-c0c7-76f4-f434-14debe35cae6",
+		"9501fc71-275c-b43f-cfd8-db192d6c6703"
+	],
+	"folders": [],
+	"timestamp": 1410488509924,
+	"synced": false,
+	"requests": [
+		{
+			"id": "38d2f25e-f775-79e8-cde7-3784de6d91c7",
+			"headers": "",
+			"url": "http://localhost:3000/email/_form",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "from",
+					"value": "from@foo.com",
+					"type": "text"
+				},
+				{
+					"key": "to",
+					"value": "to@bar.com",
+					"type": "text"
+				},
+				{
+					"key": "cc",
+					"value": "cc@bar.com",
+					"type": "text"
+				},
+				{
+					"key": "bcc",
+					"value": "bcc@bar.com",
+					"type": "text"
+				},
+				{
+					"key": "replyTo",
+					"value": "replyTo@foo.com",
+					"type": "text"
+				},
+				{
+					"key": "subject",
+					"value": "hello",
+					"type": "text"
+				},
+				{
+					"key": "html",
+					"value": "<span>你好 <strong>world</strong>!</span>",
+					"type": "text"
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"time": 1411711449839,
+			"name": "Send email (HTML) - form",
+			"description": "",
+			"collectionId": "c0fbee2c-a87a-eea2-885b-2a042d894ba0",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "59254603-74fe-d9c3-b881-ec9801092561",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:3000/email/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"time": 1411711967416,
+			"name": "Send email (HTML) - json",
+			"description": "",
+			"collectionId": "c0fbee2c-a87a-eea2-885b-2a042d894ba0",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"from\":\"from@foo.com\",\n  \"to\":\"to@bar.com\",\n  \"cc\":\"cc@bar.com\",\n  \"bcc\":\"bcc@bar.com\",\n  \"replyTo\":\"replyTo@foo.com\",\n  \"subject\":\"Hello\",\n  \"html\": \"<span>你好 <strong>world</strong>!</span>\"\n}"
+		},
+		{
+			"id": "9501fc71-275c-b43f-cfd8-db192d6c6703",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:3000/email_template/hello/send",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"time": 1411711305682,
+			"name": "Send email with template",
+			"description": "",
+			"collectionId": "c0fbee2c-a87a-eea2-885b-2a042d894ba0",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"recipients\":{\n  \t\"from\":\"from@foo.com\",\n  \t\"to\":\"to@bar.com\",\n  \t\"cc\":\"cc@bar.com\",\n  \t\"bcc\":\"bcc@bar.com\",\n  \t\"replyTo\":\"replyTo@foo.com\"\n  },\n  \"subject_data\": {\n    \"user_display_name\":\"Steve Jobs\"\n  },\n  \"body_data\":{\n    \"user_display_name\":\"Steve Jobs\",\n    \"verification_code\":\"abcdef1234567890\"\n  },\n  \"type\":\"html\"\n}"
+		},
+		{
+			"id": "a7c7d200-c0c7-76f4-f434-14debe35cae6",
+			"headers": "Content-Type: application/json\n",
+			"url": "http://localhost:3000/email/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"time": 1411711979281,
+			"name": "Send email (Text) - json",
+			"description": "",
+			"collectionId": "c0fbee2c-a87a-eea2-885b-2a042d894ba0",
+			"responses": [],
+			"synced": false,
+			"rawModeData": "{\n  \"from\":\"from@foo.com\",\n  \"to\":\"to@bar.com\",\n  \"cc\":\"cc@bar.com\",\n  \"bcc\":\"bcc@bar.com\",\n  \"replyTo\":\"replyTo@foo.com\",\n  \"subject\":\"Hello\",\n  \"text\": \"你好，world！\"\n}"
+		},
+		{
+			"id": "eb29b869-405a-8b85-d256-b37ca0a1b60c",
+			"headers": "",
+			"url": "http://localhost:3000/email/_form",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "from",
+					"value": "from@foo.com",
+					"type": "text"
+				},
+				{
+					"key": "to",
+					"value": "to@bar.com",
+					"type": "text"
+				},
+				{
+					"key": "cc",
+					"value": "cc@bar.com",
+					"type": "text"
+				},
+				{
+					"key": "bcc",
+					"value": "bcc@bar.com",
+					"type": "text"
+				},
+				{
+					"key": "replyTo",
+					"value": "replyTo@foo.com",
+					"type": "text"
+				},
+				{
+					"key": "subject",
+					"value": "hello",
+					"type": "text"
+				},
+				{
+					"key": "text",
+					"value": "你好，world！",
+					"type": "text"
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "",
+			"time": 1411711446664,
+			"name": "Send email (Text) - form",
+			"description": "",
+			"collectionId": "c0fbee2c-a87a-eea2-885b-2a042d894ba0",
+			"responses": [],
+			"synced": false
+		}
+	]
+}

@@ -1,0 +1,18 @@
+---
+# Configurations for development environment.
+# Refer to default.yml for more information.
+
+name: "netis_email_service_1"
+
+debug_mode: true
+
+logger:
+  format: "dev"
+
+protocol: "http"
+
+templates_folder_path: "./email_templates"
+
+smtp:
+  host: "localhost"
+  port: 2525

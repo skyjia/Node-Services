@@ -1,0 +1,49 @@
+---
+################ NLB NODE ################
+
+# The current application instance name.
+name: "default_netis_email_service"
+
+
+################ DEBUG ###################
+
+# Set `true` to enable debug mode.
+debug_mode: false
+
+
+################ LOG #####################
+
+# Set up looger settings
+logger:
+  format: "common"
+
+################ HTTP ####################
+
+# Indicate to trust proxy
+trust_proxy: true
+
+# Current protocol to be use for running instance: `http`, or `https`
+protocol: "http"
+
+http:
+  # set `null` to use PORT environment value. Use 3000 as default if no PORT environment is set.
+  # or set to an integer port like 8080
+  port: null
+
+https:
+  # set `null` to use PORT environment value. Use 3000 as default if no PORT environment is set.
+  # or set to an integer port like 8443
+  port: null
+  key: "../deploy/nginx/ssl/netis-dev.io.key"
+  cert: "../deploy/nginx/ssl/netis-dev.io.crt"
+
+################ APPLICATION #############
+
+# Relative path to launch path
+# or an absolute path.
+templates_folder_path: "./email_templates"
+
+################ SMTP ####################
+smtp:
+  host: "localhost"
+  port: 25

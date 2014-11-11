@@ -1,0 +1,19 @@
+---
+# Configurations for development environment.
+# Refer to default.yml for more information.
+
+name: "netis_session_service_1"
+
+debug_mode: true
+
+logger:
+  format: "dev"
+
+protocol: "http"
+
+allowed_clients:
+  db1: "db1"
+  db2: "db2"
+  db3: "db3"
+  portal: "portal"
+  mis: "mis"

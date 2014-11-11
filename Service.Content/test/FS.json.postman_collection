@@ -1,0 +1,197 @@
+{
+	"id": "cf89b244-a1a1-16b5-faa6-093adadd3b4f",
+	"name": "FS",
+	"description": "",
+	"order": [
+		"caa19a9f-e7be-ac1a-ac77-8a13c6498728",
+		"1015ff48-b6c3-9c10-c505-35684b57bbdb",
+		"9ef53e5e-dff0-7b53-fde3-4a657a0f7d6d",
+		"196d08b9-a430-889e-c3a5-0a9c7fa940fe",
+		"4ede93fe-9b3b-579e-3026-e0d409c03070",
+		"81a91e78-f79f-f4bd-6ba7-5f84eb0860a9",
+		"476539a3-1fab-7cdd-a391-53c170bcf296"
+	],
+	"folders": [],
+	"timestamp": 1410244517014,
+	"synced": false,
+	"requests": [
+		{
+			"id": "1015ff48-b6c3-9c10-c505-35684b57bbdb",
+			"headers": "Authorization: somestring\n",
+			"url": "{{BaseURL}}/objects/{{bucket}}/dir2/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "HEAD",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"time": 1413178178339,
+			"name": "Get metadata of an object",
+			"description": "",
+			"collectionId": "cf89b244-a1a1-16b5-faa6-093adadd3b4f",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "196d08b9-a430-889e-c3a5-0a9c7fa940fe",
+			"headers": "Authorization: somestring\n",
+			"url": "{{BaseURL}}/objects/{{bucket}}/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "x-fs-meta-field1",
+					"value": "my-value-111",
+					"type": "text"
+				},
+				{
+					"key": "x-fs-meta-field2",
+					"value": "my-value-222",
+					"type": "text"
+				},
+				{
+					"key": "key",
+					"value": "dir3/new_dir/ccc/",
+					"type": "text"
+				},
+				{
+					"key": "overwrite",
+					"value": "1",
+					"type": "text"
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"time": 1413178156821,
+			"name": "Upload a directory",
+			"description": "",
+			"collectionId": "cf89b244-a1a1-16b5-faa6-093adadd3b4f",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "476539a3-1fab-7cdd-a391-53c170bcf296",
+			"headers": "Authorization: somestring\nx-fs-meta-field1: my-value-111\nx-fs-meta-field2: my-value-222\noverwrite: 1\nContent-MD5: md5_value_of_a_file\n",
+			"url": "{{BaseURL}}/objects/{{bucket}}/dir2/dir22/f2.mmap",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"time": 1413178170603,
+			"name": "Upload a file",
+			"description": "",
+			"collectionId": "cf89b244-a1a1-16b5-faa6-093adadd3b4f",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "4ede93fe-9b3b-579e-3026-e0d409c03070",
+			"headers": "Authorization: somestring\n",
+			"url": "{{BaseURL}}/objects/{{bucket}}/dir2/dir22/f2.mmap",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"time": 1413178161388,
+			"name": "Delete a file (object)",
+			"description": "",
+			"collectionId": "cf89b244-a1a1-16b5-faa6-093adadd3b4f",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "81a91e78-f79f-f4bd-6ba7-5f84eb0860a9",
+			"headers": "Authorization: somestring\n",
+			"url": "{{BaseURL}}/objects/{{bucket}}/dir2/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"time": 1413178164646,
+			"name": "Delete a directory",
+			"description": "",
+			"collectionId": "cf89b244-a1a1-16b5-faa6-093adadd3b4f",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "9ef53e5e-dff0-7b53-fde3-4a657a0f7d6d",
+			"headers": "Authorization: somestring\n",
+			"url": "{{BaseURL}}/objects/{{bucket}}/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "file",
+					"value": "btn_unionpay.gif",
+					"type": "file"
+				},
+				{
+					"key": "x-fs-meta-field1",
+					"value": "my-value-111",
+					"type": "text"
+				},
+				{
+					"key": "x-fs-meta-field2",
+					"value": "my-value-222",
+					"type": "text"
+				},
+				{
+					"key": "key",
+					"value": "dir2/dir22/f2.mmap",
+					"type": "text"
+				},
+				{
+					"key": "overwrite",
+					"value": "1",
+					"type": "text"
+				},
+				{
+					"key": "Content-MD5",
+					"value": "md5_value_of_a_file",
+					"type": "text"
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"time": 1413178076408,
+			"name": "Upload a file",
+			"description": "",
+			"collectionId": "cf89b244-a1a1-16b5-faa6-093adadd3b4f",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "caa19a9f-e7be-ac1a-ac77-8a13c6498728",
+			"headers": "Authorization: somestring\n",
+			"url": "{{BaseURL}}/objects/{{bucket}}/dir2/dir22/f2.mmap",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"time": 1413178174079,
+			"name": "Download a file (object)",
+			"description": "",
+			"collectionId": "cf89b244-a1a1-16b5-faa6-093adadd3b4f",
+			"responses": [],
+			"synced": false
+		}
+	]
+}

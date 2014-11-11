@@ -1,0 +1,53 @@
+---
+################ NLB NODE ################
+
+# The current application instance name.
+name: "default_netis_content_service"
+
+
+################ DEBUG ###################
+
+# Set `true` to enable debug mode.
+debug_mode: false
+
+
+################ LOG #####################
+
+# Set up looger settings
+logger:
+  format: "common"
+
+################ HTTP ####################
+
+# Indicate to trust proxy
+trust_proxy: true
+
+http:
+  # set `null` to use PORT environment value. Use 3000 as default if no PORT environment is set.
+  # or set to an integer port like 8080
+  port: null
+
+
+################ APPLICATION ####################
+
+# the storage path for content service.
+# Relative path to launch path
+# or an absolute path.
+storage_path: "./storage"
+
+# the upload path for uploading files.
+# Relative path to launch path
+# or an absolute path.
+upload_path: "./uploads"
+
+# define available buckets
+#buckets:
+#  wxm:
+#    desc: "Bucket for wxm"
+#  kpzx:
+#    desc: "Bucket for KPZX"
+buckets: []
+
+################ MONGO DB ####################
+
+metadata_db_connection: "mongodb://localhost:27017/ContentService"

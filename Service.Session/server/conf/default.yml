@@ -1,0 +1,59 @@
+---
+################ NLB NODE ################
+
+# The current application instance name.
+name: "default_netis_session_service"
+
+
+################ DEBUG ###################
+
+# Set `true` to enable debug mode.
+debug_mode: false
+
+
+################ LOG #####################
+
+# Set up looger settings
+logger:
+  format: "common"
+
+################ HTTP ####################
+
+# Indicate to trust proxy
+trust_proxy: true
+
+# Current protocol to be use for running instance: `http`, or `https`
+protocol: "http"
+
+http:
+  # set `null` to use PORT environment value. Use 3000 as default if no PORT environment is set.
+  # or set to an integer port like 8080
+  port: null
+
+https:
+  port: 3443
+  key: "../deploy/nginx/ssl/netis-dev.io.key"
+  cert: "../deploy/nginx/ssl/netis-dev.io.crt"
+
+
+################ APPLICATION ####################
+
+# Max Session Expiration, default is one month
+max_session_expiration: 2592000
+
+# Max cache Expiration, default is one month
+max_cache_expiration: 2592000
+
+# Allowed clients, key is client_id, value is the prefix of data name in redis
+#
+#allowed_clients:
+#   client_1: "db1"
+#
+allowed_clients: []
+
+
+################ Redis ####################
+redis_conn:
+  port: 6379
+  ip: "127.0.0.1"
+  options: null

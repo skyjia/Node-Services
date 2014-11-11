@@ -1,0 +1,8 @@
+Dear <strong>{{ user_display_name }}</strong>:
+
+You verification code is: {{ verification_code }}
+
+Regards,
+Team
+
+<i>^_^</i>
