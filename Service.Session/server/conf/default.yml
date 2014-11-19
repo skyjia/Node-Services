@@ -38,10 +38,10 @@ https:
 
 ################ APPLICATION ####################
 
-# Max Session Expiration, default is one month
+# Max Session Expiration in second, default is one month
 max_session_expiration: 2592000
 
-# Max cache Expiration, default is one month
+# Max cache Expiration in second, default is one month
 max_cache_expiration: 2592000
 
 # Allowed clients, key is client_id, value is the prefix of data name in redis

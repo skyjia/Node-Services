@@ -34,27 +34,21 @@ var repository = (function(){
         }
     }
 
-    function getExpireIn(expire_in) {
-        if (expire_in === null) {return null;}
-        return (expire_in <= settings.max_session_expiration) ? expire_in : settings.max_session_expiration;
-    }
-
     return {
         "deleteSession": function(client_id, session_id, callback) {
             var sessionKey = getSessionKey(client_id, session_id);
 
             client.del(sessionKey, callback);
         },
-        "setSessionFields": function(client_id, session_id, fields, expire_in, callback) {
+        "setSessionFields": function(client_id, session_id, fields, expire_at, callback) {
             var sessionKey = getSessionKey(client_id, session_id);
-            var expireIn = getExpireIn(expire_in);
 
-            if (expireIn === null) {
-                client.hmset([sessionKey].concat(fields), callback);
+            if (expire_at === null) {
+                client.hmset(sessionKey, fields, callback);
             } else {
                 var multi = client.multi();
-                multi.hmset([sessionKey].concat(fields));
-                multi.expire(sessionKey, expireIn);
+                multi.hmset(sessionKey, fields);
+                multi.pexpireat(sessionKey, expire_at);
                 multi.exec(function(errs, replies){
                     if (callback) {
                         callback.call(null,
@@ -64,16 +58,15 @@ var repository = (function(){
                 });
             }
         },
-        "getSessionFields": function(client_id, session_id, field_names, expire_in, callback) {
+        "getSessionFields": function(client_id, session_id, field_names, expire_at, callback) {
             var sessionKey = getSessionKey(client_id, session_id);
-            var expireIn = getExpireIn(expire_in);
 
-            if (expireIn === null) {
+            if (expire_at === null) {
                 client.hmget([sessionKey].concat(field_names), callback);
             } else {
                 var multi = client.multi();
                 multi.hmget([sessionKey].concat(field_names));
-                multi.expire(sessionKey, expireIn);
+                multi.pexpireat(sessionKey, expire_at);
                 multi.exec(function(errs, replies) {
                     if (callback) {
                         callback.call(this,
@@ -83,16 +76,15 @@ var repository = (function(){
                 });
             }
         },
-        "getSessionAllFields": function(client_id, session_id, expire_in, callback) {
+        "getSessionAllFields": function(client_id, session_id, expire_at, callback) {
             var sessionKey = getSessionKey(client_id, session_id);
-            var expireIn = getExpireIn(expire_in);
 
-            if (expireIn === null) {
+            if (expire_at === null) {
                 client.hgetall(sessionKey, callback);
             } else {
                 client.multi()
                     .hgetall(sessionKey)
-                    .expire(sessionKey, expireIn)
+                    .pexpireat(sessionKey, expire_at)
                     .exec(function(errs, replies) {
                         if (callback) {
                             callback.call(this,
@@ -102,16 +94,15 @@ var repository = (function(){
                     });
             }
         },
-        "deleteSessionFields": function(client_id, session_id, field_names, expire_in, callback) {
+        "deleteSessionFields": function(client_id, session_id, field_names, expire_at, callback) {
             var sessionKey = getSessionKey(client_id, session_id);
-            var expireIn = getExpireIn(expire_in);
 
-            if (expireIn === null) {
+            if (expire_at === null) {
                 client.hdel([sessionKey].concat(field_names), callback);
             } else {
-                var multi = client.multi();
+                 var multi = client.multi();
                  multi.hdel([sessionKey].concat(field_names));
-                 multi.expire(sessionKey, expireIn);
+                 multi.pexpireat(sessionKey, expire_at);
                  multi.exec(function(errs, replies){
                      if(callback) {
                          callback.call(this,
@@ -121,12 +112,11 @@ var repository = (function(){
                  });
             }
         },
-        "renewExpiration": function(client_id, session_id, expire_in, callback) {
+        "renewExpiration": function(client_id, session_id, expire_at, callback) {
             var sessionKey = getSessionKey(client_id, session_id);
-            var expireIn = getExpireIn(expire_in);
 
-            if (expireIn !== null) {
-                client.expire(sessionKey, expireIn, callback);
+            if (expire_at !== null) {
+                client.pexpireat(sessionKey, expire_at, callback);
             }
         },
         "isExists": function(client_id, session_id, callback) {

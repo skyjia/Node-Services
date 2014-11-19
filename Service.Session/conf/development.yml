@@ -11,6 +11,11 @@ logger:
 
 protocol: "http"
 
+################ APPLICATION ####################
+
+# Max Session Expiration in second, default is one month
+max_session_expiration: 2592000
+
 allowed_clients:
   db1: "db1"
   db2: "db2"
