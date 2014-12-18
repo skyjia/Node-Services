@@ -247,7 +247,7 @@ router.get("/:session_id/field", validateFilter, function(req, res, next){
 
     var expireAt = sessionHelper.convertToExpireAt(expireIn);
 
-    sessionRepository.getSessionAllFields(clientID, sessionID, expireAt, function(err, reply){
+    sessionRepository.getSessionAllFields(clientID, sessionID, expireAt, function(err, reply) {
 
         if (err) { next(err); return; }
 
