@@ -123,6 +123,7 @@ router.get("/:customerID/session", validateFilter, function(req, res, next) {
 
         if (!reply || reply.length === 0) {
             res.status(200).json(result);
+            return;
         }
 
         var sessionIDs = _.map(reply, function(key) {
