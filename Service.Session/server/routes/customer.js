@@ -64,6 +64,10 @@ router.get("/:customerID/session_count", validateFilter, function(req, res, next
 //
 //  GET /customer/:customer_id/session
 //
+//### HTTP REQUEST URL PARAMETERS
+//
+//  - clientid : the client id where customer session belongs to
+//
 //### HTTP REQUEST HEADERS
 //
 //  - client_id : required, the id of client app
@@ -110,7 +114,7 @@ router.get("/:customerID/session_count", validateFilter, function(req, res, next
 //  N/A
 //
 router.get("/:customerID/session", validateFilter, function(req, res, next) {
-    var clientID = req.get(constVars.HTTP_HEADER_CLIENT_ID);
+    var clientID = req.query.clientid;
     var customerID = req.params.customerID;
 
     customerRepository.searchCustomerSession(clientID, customerID, function(err, reply) {
