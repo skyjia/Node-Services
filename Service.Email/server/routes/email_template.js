@@ -18,7 +18,7 @@ var transporter = require('../helpers/email_sender.js');
 var constVars = require('../const.js');
 var errHandleHelper = require('../helpers/error_handle_helper.js');
 
-var TEMPLATES_FOLDER = path.resolve(settings.templates_folder_path);
+var TEMPLATES_FOLDER = path.resolve(__dirname, '../../', settings.templates_folder_path);
 
 // HTTP REQUEST
 //      POST {base_url}/email_template/:template_name/send
@@ -67,7 +67,10 @@ router.post('/:template_name/send', function(req, res, next){
 
     // Check templates existing.
     var subject_template_path = path.join(TEMPLATES_FOLDER,template_name+'_subject');
+    console.log('subject_template_path=', subject_template_path);
+
     var body_template_path = path.join(TEMPLATES_FOLDER,template_name+'_body');
+    console.log('body_template_path=', body_template_path);
 
     if(!fs.existsSync(subject_template_path) || !fs.existsSync(body_template_path)){
         var err = errHandleHelper.createNetISError(
