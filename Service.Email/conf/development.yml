@@ -11,6 +11,9 @@ logger:
 
 protocol: "http"
 
+http:
+  port: 9004
+
 templates_folder_path: "./email_templates"
 
 smtp:
